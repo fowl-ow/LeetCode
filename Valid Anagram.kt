@@ -1,13 +1,12 @@
 
 class Solution {
     fun isAnagram(s: String, t: String): Boolean {
-        val sm = s.groupingByCount().toSortedMap()
-        val tm = t.groupingByCount().toSortedMap()
-        return sm == tm
+        if (s.length != t.length) return false
+        if (setOf(s) != setOf(t))
+        return s.magic() == t.magic()
     }
 }
 
-
-fun String.groupingByCount(): Map<Char, Int> {
-    return this.groupingBy { it }.eachCount()
+fun String.magic(): Map<Char, Int> {
+    return this.groupingBy { it }.eachCount().toMap()
 }
